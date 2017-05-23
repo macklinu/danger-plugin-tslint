@@ -1,0 +1,65 @@
+{
+  "name": "danger-plugin-tslint",
+  "version": "0.0.0-development",
+  "description": "Danger plugin for TSLint",
+  "main": "dist/index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "prepush": "npm run test",
+    "commitmsg": "validate-commit-msg",
+    "lint": "tslint *.ts",
+    "test": "jest",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macklinu/danger-plugin-tslint.git"
+  },
+  "keywords": [
+    "danger",
+    "danger-plugin",
+    "tslint"
+  ],
+  "author": "Macklin Underdown <macklinu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macklinu/danger-plugin-tslint/issues"
+  },
+  "homepage": "https://github.com/macklinu/danger-plugin-tslint#readme",
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "danger": "^0.19.0",
+    "husky": "^0.13.3",
+    "jest": "^20.0.3",
+    "lint-staged": "^3.4.2",
+    "semantic-release": "^6.3.6",
+    "ts-jest": "^20.0.4",
+    "tslint": "^5.0.0",
+    "typescript": "^2.3.3",
+    "validate-commit-msg": "^2.12.1"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+
+      "js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --fix",
+      "git add"
+    ]
+  }
+}
