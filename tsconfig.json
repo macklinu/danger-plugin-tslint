@@ -1,9 +1,24 @@
 {
   "compilerOptions": {
+    "lib": ["es5", "es2015"],
     "module": "commonjs",
-    "target": "es5",
-    "noImplicitAny": false,
-    "strict": true,
-    "sourceMap": false
-  }
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "pretty": true,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5"
+  },
+  "files": [
+    "src/**/*ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
