@@ -13,10 +13,11 @@
     "sourceMap": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es5"
+    "target": "es5",
+    "types": ["node"]
   },
-  "files": [
-    "src/**/*ts"
+  "include": [
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

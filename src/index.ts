@@ -1,10 +1,16 @@
+/**
+ * @module tslint
+ */
+/**
+ * This second comment is required until
+ * https://github.com/christopherthielen/typedoc-plugin-external-module-name/issues/6 is resolved.
+ */
+
 import * as fs from 'fs'
-import * as path from 'path'
-import { Configuration, findFormatter, Formatters, Linter, RuleFailure } from 'tslint'
+import { Configuration, findFormatter, Linter, RuleFailure } from 'tslint'
 
 /**
- * Possible TSLint formatters.
- * See https://palantir.github.io/tslint/formatters/.
+ * Possible TSLint [formatters](https://palantir.github.io/tslint/formatters/).
  */
 type Formatter =
   | 'checkstyle'
@@ -19,29 +25,39 @@ type Formatter =
   | 'verbose'
   | 'vso'
 
-interface ILintOptions {
+interface IPluginConfig {
   /**
    * The path to your project's `tslint.json` file.
-   * Defaults to the root directory.
+   * @default `'tslint.json'`
    */
   tslintPath?: string
   /**
    * The path to your project's `tsconfig.json` file.
-   * Defaults to the root directory.
+   * @default `'tsconfig.json'`
    */
   tsconfigPath?: string
   /**
    * A TSLint [formatter](https://palantir.github.io/tslint/formatters/).
-   * Defaults to 'prose' (the default TSLint formatter).
+   * @default `'prose'`
    */
   formatter?: Formatter
 }
 
-export default function tslint({
-  tslintPath = 'tslint.json',
-  tsconfigPath = 'tsconfig.json',
-  formatter = 'prose',
-}: ILintOptions = {}): void {
+/**
+ * Runs TSLint on a project's source code and reports results to Danger.
+ * If there are any lint violations, Danger will fail the build and post results in a comment.
+ * If there are no lint violations, Danger will comment saying that TSLint passed.
+ *
+ * @export
+ * @param config The optional config object.
+ */
+export default function tslint(config: IPluginConfig = {}): void {
+  const {
+    tslintPath = 'tslint.json',
+    tsconfigPath = 'tsconfig.json',
+    formatter = 'prose',
+  } = config
+
   // Set up TSLint
   const options = { fix: false }
   const program = Linter.createProgram(tsconfigPath)
@@ -58,14 +74,14 @@ export default function tslint({
   // Handle lint output
   const { failures } = linter.getResult()
   if (failures.length > 0) {
-    const formattedFailures = getFormattedFailues(formatter, failures)
+    const formattedFailures = _getFormattedFailures(formatter, failures)
     fail(formattedFailures)
   } else {
     message(':white_check_mark: TSLint passed')
   }
 }
 
-function getFormattedFailues(formatter: Formatter, failures: RuleFailure[]): string {
+function _getFormattedFailures(formatter: Formatter, failures: RuleFailure[]): string {
   const Formatter = findFormatter(formatter)
   if (Formatter !== undefined) {
     return new Formatter().format(failures)

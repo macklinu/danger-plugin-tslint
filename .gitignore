@@ -61,6 +61,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Generated docs
+docs/
 
 ### VisualStudioCode ###
 .vscode/*
