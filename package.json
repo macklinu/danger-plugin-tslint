@@ -6,6 +6,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "prepush": "npm run test",
+    "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
     "build": "tsc -p tsconfig.json",
     "lint": "tslint '{__tests__/**/*.test.ts,src/**/*.ts}' -c tslint.json -p tsconfig.json",
