@@ -25,6 +25,20 @@ import tslint from 'danger-plugin-tslint'
 tslint()
 ```
 
+If you want to supply custom options, you can do that too:
+
+```js
+// dangerfile.js
+import path from 'path'
+import tslint from 'danger-plugin-tslint'
+
+tslint({
+  tslintPath: path.resolve(__dirname, 'path/to/tslint.json'),
+  tsconfigPath: path.resolve(__dirname, 'path/to/tsconfig.json'),
+  formatter: 'stylish',
+})
+```
+
 See the [documentation](http://macklin.underdown.me/danger-plugin-tslint/modules/tslint.html#tslint-1) for detailed information (and also check out [`src/index.ts`](https://github.com/macklinu/danger-plugin-tslint/blob/master/src/index.ts)).
 
 ## Changelog
