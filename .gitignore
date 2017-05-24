@@ -64,6 +64,9 @@ typings/
 # Generated docs
 docs/
 
+# Generated source
+dist/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
