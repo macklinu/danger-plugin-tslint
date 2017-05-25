@@ -67,6 +67,9 @@ docs/
 # Generated source
 dist/
 
+# Generated reports
+reports/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
