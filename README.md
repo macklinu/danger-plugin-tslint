@@ -80,6 +80,11 @@ tslint({
 })
 ```
 
+Here are examples of what the Danger comment will look like for success or failure:
+
+![success](screenshots/success.png)
+![failure](screenshots/failure.png)
+
 See the [documentation](http://macklin.underdown.me/danger-plugin-tslint/modules/tslint.html#tslint-1) for detailed information (and also check out [`src/index.ts`](https://github.com/macklinu/danger-plugin-tslint/blob/master/src/index.ts)).
 
 ## Changelog
