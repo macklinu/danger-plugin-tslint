@@ -1,0 +1,65 @@
+[
+  {
+    "endPosition": {
+      "character": 57,
+      "line": 47,
+      "position": 1506
+    },
+    "failure": "Unnecessary semicolon",
+    "fix": {
+      "innerStart": 1505,
+      "innerLength": 1,
+      "innerText": ""
+    },
+    "name": "src/index.ts",
+    "ruleName": "semicolon",
+    "ruleSeverity": "ERROR",
+    "startPosition": {
+      "character": 56,
+      "line": 47,
+      "position": 1505
+    }
+  },
+  {
+    "endPosition": {
+      "character": 38,
+      "line": 48,
+      "position": 1545
+    },
+    "failure": "Unnecessary semicolon",
+    "fix": {
+      "innerStart": 1544,
+      "innerLength": 1,
+      "innerText": ""
+    },
+    "name": "src/index.ts",
+    "ruleName": "semicolon",
+    "ruleSeverity": "ERROR",
+    "startPosition": {
+      "character": 37,
+      "line": 48,
+      "position": 1544
+    }
+  },
+  {
+    "endPosition": {
+      "character": 18,
+      "line": 52,
+      "position": 1650
+    },
+    "failure": "Unnecessary semicolon",
+    "fix": {
+      "innerStart": 1649,
+      "innerLength": 1,
+      "innerText": ""
+    },
+    "name": "src/index.ts",
+    "ruleName": "semicolon",
+    "ruleSeverity": "ERROR",
+    "startPosition": {
+      "character": 17,
+      "line": 52,
+      "position": 1649
+    }
+  }
+]
