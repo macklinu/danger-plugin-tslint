@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`throws when config is not supplied 1`] = `"Configuration not supplied"`;
+
+exports[`throws when lintResultsJsonPath is not supplied 1`] = `"'lintResultsJsonPath' not supplied"`;

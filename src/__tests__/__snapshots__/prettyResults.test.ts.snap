@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it formats failures 1`] = `
+"- ERROR: src/index.ts[48, 57]: Unnecessary semicolon
+- ERROR: src/index.ts[49, 38]: Unnecessary semicolon
+- ERROR: src/index.ts[53, 18]: Unnecessary semicolon"
+`;

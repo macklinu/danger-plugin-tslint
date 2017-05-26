@@ -10,6 +10,37 @@
 
 ## Usage
 
+### Setup TSLint
+
+This Danger plugin requires that you output the TSLint results as a JSON file before running `danger` on CI.
+
+One way to do this is to use TSLint's JSON formatter and [`tee`](https://en.wikipedia.org/wiki/Tee_(command)).
+
+Given a `package.json` with a "lint" script:
+
+```json
+{
+  "scripts": {
+    "lint": "tslint 'src/**/*.{ts,tsx}'"
+  }
+}
+```
+
+Running `yarn run lint --silent -- --format json` will only output the JSON results, which are piped into `tee` and written to disk in the `reports/lint-results.json` file.
+
+```sh
+# ci-script.sh
+
+mkdir -p reports/
+yarn run lint --silent -- --format json | tee reports/lint-results.json
+
+yarn run danger
+```
+
+> In this example, may also want to add the `reports/` directory to your `.gitignore` file, as this file does not need to be checked into source control.
+
+### Setup Danger
+
 Install:
 
 ```sh
@@ -20,12 +51,16 @@ At a glance:
 
 ```js
 // dangerfile.js
+import path from 'path'
 import tslint from 'danger-plugin-tslint'
 
-tslint()
+// Handle TSLint results in `reports/lint-results.json` and leave a Danger comment on the PR
+tslint({
+  lintResultsJsonPath: path.resolve(__dirname, 'reports', 'lint-results.json'),
+})
 ```
 
-If you want to supply custom options, you can do that too:
+By default `tslint()` will use the `defaultResultHandler` in [`src/resultHandlers.ts`](https://github.com/macklinu/danger-plugin-tslint/blob/master/src/resultHandlers.ts). If you want to supply a custom result handler, which also requires you to call Danger functions like `fail()` and `message()` , you can do that too:
 
 ```js
 // dangerfile.js
@@ -33,9 +68,15 @@ import path from 'path'
 import tslint from 'danger-plugin-tslint'
 
 tslint({
-  tslintPath: path.resolve(__dirname, 'path/to/tslint.json'),
-  tsconfigPath: path.resolve(__dirname, 'path/to/tsconfig.json'),
-  formatter: 'stylish',
+  lintResultsJsonPath: path.resolve(__dirname, 'reports', 'lint-results.json'),
+  handleResults: (results) => {
+    if (results.length > 0) {
+      const formattedResults = formatResults(results)
+      fail(`TSLint failed\n\n${formattedResults}`)
+    } else {
+      message('👍 TSLint passed')
+    }
+  }
 })
 ```
 
