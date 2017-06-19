@@ -69,9 +69,13 @@
   version "2.0.29"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
-"@types/node@*", "@types/node@^7.0.22":
+"@types/node@*":
   version "7.0.22"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.22.tgz#4593f4d828bdd612929478ea40c67b4f403ca255"
+
+"@types/node@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.0.tgz#acaa89247afddc7967e9902fd11761dadea1a555"
 
 "@types/shelljs@^0.7.0":
   version "0.7.1"
@@ -938,7 +942,7 @@ cz-conventional-changelog@^2.0.0:
     right-pad "^1.0.1"
     word-wrap "^1.0.3"
 
-danger@0.20.0:
+danger@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/danger/-/danger-0.20.0.tgz#dbdefc31a4882bbf37ae721d6c3f27300fde791b"
   dependencies:
