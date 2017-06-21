@@ -938,9 +938,9 @@ cz-conventional-changelog@^2.0.0:
     right-pad "^1.0.1"
     word-wrap "^1.0.3"
 
-danger@0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/danger/-/danger-0.20.0.tgz#dbdefc31a4882bbf37ae721d6c3f27300fde791b"
+danger@0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/danger/-/danger-0.21.1.tgz#92af5921f9678541c0b64b17aa4e3bfed1813322"
   dependencies:
     babel-polyfill "^6.20.0"
     chalk "^1.1.1"
