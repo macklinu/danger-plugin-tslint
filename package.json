@@ -14,7 +14,7 @@
     "commitmsg": "validate-commit-msg",
     "build": "tsc -p tsconfig.json",
     "lint": "tslint '{dangerfile.ts,src/**/*.ts}'",
-    "test": "jest",
+    "test": "jest --env=node",
     "danger": "danger",
     "docs": "typedoc --theme minimal --out docs src/index.ts",
     "docs:serve": "npm run docs && serve docs",
