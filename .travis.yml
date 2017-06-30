@@ -1,12 +1,10 @@
 language: node_js
 cache:
   yarn: true
-  directories:
-    - node_modules
 notifications:
   email: false
 node_js:
-  - '7'
+  - '8'
   - '6'
   - '4'
 before_install: yarn global add greenkeeper-lockfile@1
@@ -15,12 +13,13 @@ before_script:
   - npm prune
 script:
   - mkdir -p reports
+  - yarn add jest
   - yarn run test -- --coverage
   - yarn run lint --silent -- -t json | tee reports/lint-results.json
   - yarn run danger
 after_success:
   - greenkeeper-lockfile-upload
-  - npm run semantic-release
+  - yarn run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
