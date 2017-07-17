@@ -924,9 +924,9 @@ cz-conventional-changelog@^2.0.0:
     right-pad "^1.0.1"
     word-wrap "^1.0.3"
 
-danger@^0.21.1:
-  version "0.21.2"
-  resolved "https://registry.yarnpkg.com/danger/-/danger-0.21.2.tgz#c14e3d2fc1f820ec2afad353433046f7a917801c"
+danger@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/danger/-/danger-1.0.0.tgz#abad492dcf22f72407c3a96f00082835418040ef"
   dependencies:
     babel-polyfill "^6.20.0"
     chalk "^1.1.1"
@@ -1778,11 +1778,11 @@ husky@^0.14.1:
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
 
-iconv-lite@0.4.13, iconv-lite@~0.4.13:
+iconv-lite@0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-iconv-lite@0.4.15:
+iconv-lite@0.4.15, iconv-lite@~0.4.13:
   version "0.4.15"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
