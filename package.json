@@ -46,7 +46,7 @@
     "danger": "^1.0.0",
     "gh-pages": "^1.0.0",
     "husky": "^0.14.1",
-    "jest": "^21.2.1",
+    "jest": "^22.0.3",
     "lint-staged": "^4.0.0",
     "semantic-release": "^6.3.6",
     "ts-jest": "^21.1.2",
