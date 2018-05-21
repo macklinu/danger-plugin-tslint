@@ -43,7 +43,7 @@
     "@types/node": "^8.0.6",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
-    "danger": "^1.0.0",
+    "danger": "^3.7.13",
     "gh-pages": "^1.0.0",
     "husky": "^0.14.1",
     "jest": "^21.2.1",
