@@ -60,7 +60,7 @@
     "tslint": "^5.0.0"
   },
   "optionalDependencies": {
-    "serve": "^6.0.0"
+    "serve": "^8.0.0"
   },
   "jest": {
     "testRegex": ".*\\.test\\.ts$",
