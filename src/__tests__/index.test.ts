@@ -38,3 +38,33 @@ test('throws when config is not supplied', () => {
 test('throws when lintResultsJsonPath is not supplied', () => {
   expect(() => tslint({})).toThrowErrorMatchingSnapshot()
 })
+
+test('throws when lintResultsJson is null', () => {
+  expect(() => tslint({
+    lintResultsJson: null,
+  })).toThrowErrorMatchingSnapshot()
+})
+
+test('throws when both lintResultsJsonPath and lintResultsJson are supplied', () => {
+  const lintResultsJson = [{
+    endPosition: {
+      character: 1,
+      line: 1,
+      position: 1,
+    },
+    failure: 'foo',
+    name: 'bar',
+    ruleName: 'foo',
+    ruleSeverity: 'foo',
+    startPosition: {
+      character: 1,
+      line: 1,
+      position: 1,
+    },
+  }]
+
+  expect(() => tslint({
+    lintResultsJson,
+    lintResultsJsonPath: '/foo/bar/baz',
+  })).toThrowErrorMatchingSnapshot()
+})
