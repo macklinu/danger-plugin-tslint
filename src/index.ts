@@ -30,6 +30,18 @@ export interface IPluginConfig {
   handleResults?(results: IRuleFailureJson[]): void
 }
 
+/** Reads */
+const getLintResults = (path: string): IRuleFailureJson[] | null => {
+  try {
+    const fileContents = fs.readFileSync(path, 'utf8')
+    return JSON.parse(fileContents)
+  } catch (e) {
+    // tslint:disable-next-line:no-console
+    console.error(e)
+    return null
+  }
+}
+
 /**
  * Runs TSLint on a project's source code and reports results to Danger.
  *
@@ -41,18 +53,6 @@ export interface IPluginConfig {
  * @param config The plugin config object.
  */
 export default function tslint(config: IPluginConfig): void {
-  /** Reads */
-  const getLintResults = (path: string): IRuleFailureJson[] | null => {
-    try {
-      const fileContents = fs.readFileSync(path, 'utf8')
-      return JSON.parse(fileContents)
-    } catch (e) {
-      // tslint:disable-next-line:no-console
-      console.error(e)
-      return null
-    }
-  }
-
   if (!config) {
     throw Error('Configuration not supplied')
   }
