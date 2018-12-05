@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`throws when both lintResultsJsonPath and lintResultsJson are supplied 1`] = `"'you cannot provide both lintResultsJson and lintResultsJsonPath as options."`;
+
 exports[`throws when config is not supplied 1`] = `"Configuration not supplied"`;
 
-exports[`throws when lintResultsJsonPath is not supplied 1`] = `"'lintResultsJsonPath' not supplied"`;
+exports[`throws when lintResultsJson is null 1`] = `"'you must provide either lintResultsJson or lintResultsJsonPath as an option."`;
+
+exports[`throws when lintResultsJsonPath is not supplied 1`] = `"'you must provide either lintResultsJson or lintResultsJsonPath as an option."`;
